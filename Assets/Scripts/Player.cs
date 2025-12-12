@@ -4,16 +4,16 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D RB;
     public float speed = 5;
-    public float MaxHP = 20;
-    public float HP;
+    public float HP;                                                                                                                                                                               
     public float MaxHunger = 100;
     Vector2 movement;
     Vector2 mousePos;
     public Camera cam;
+    public int MaxHP = 10;
+    private int currentHealth;
     private void Start()
     {
         RB = gameObject.GetComponent<Rigidbody2D>();
-        HP = MaxHP;
     }
 
     void Update()
@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     private void FixedUpdate()
     {
         RB.MovePosition(RB.position + movement * speed * Time.fixedDeltaTime);
